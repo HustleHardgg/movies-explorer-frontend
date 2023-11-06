@@ -1,0 +1,40 @@
+.btn-content {
+  margin: 50px 0 80px;
+  padding: 0 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-content__btn-more {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  background: #f4f4f4;
+  border-radius: 6px;
+  width: 326px;
+  height: 36px;
+  border: none;
+  box-shadow: none;
+  transition: box-shadow linear 0.5s;
+}
+
+.btn-content__btn-more:hover {
+  cursor: pointer;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+@media screen and (max-width: 768px) {
+  .btn-content {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .btn-content {
+    padding: 0 10px;
+  }
+  .btn-content__btn-more {
+    width: 240px;
+  }
+}

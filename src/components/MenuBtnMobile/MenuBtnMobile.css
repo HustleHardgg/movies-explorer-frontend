@@ -1,0 +1,25 @@
+.menu__btn-mobile {
+  display: block;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-image: url(../../images/icon-mobile-menu.svg);
+  width: 40px;
+  height: 43px;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+.menu__btn-mobile:hover {
+  opacity: 0.8;
+  transition: opacity linear 0.5s;
+}
+
+.menu__btn-mobile-invisible {
+  display: none;
+}
+
+

@@ -1,0 +1,72 @@
+.movies-card {
+  max-width: 364px;
+  background: #fdfdfd;
+
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 6px;
+  transition: box-shadow linear 0.3s;
+}
+
+.movies-card:hover {
+  cursor: pointer;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+.movies-card__img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.movies-card__content {
+
+  padding: 14px;
+}
+
+.movies-card__content-text{
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.movies-card__content-text-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.movies-card__content-text-duration {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  color: #a0a0a0;
+  background-color: rgba(249, 249, 249, 1);
+}
+
+.movies-card__content-btn-like {
+   background-image: url(../../images/icon-heart-light.svg);
+   border: none;
+   width: 30px;
+   height: 30px;
+   cursor: pointer;
+   background-repeat: no-repeat;
+}
+.movies-card__content-btn-like-active {
+  background-image: url(../../images/icon-heart-solid.svg);
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.movies-card__content-btn-like-active:hover {
+  background-image: url(../../images/icon-del-like.svg);
+}

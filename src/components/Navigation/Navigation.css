@@ -1,0 +1,21 @@
+.navigate {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-left: 44px;
+  justify-content: flex-end;
+}
+
+.navigate__link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #000;
+  transition: opacity linear 0.3s;
+}
+
+.navigate__link:hover {
+  opacity: 0.8;
+}
