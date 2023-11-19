@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -35,9 +36,9 @@ const Profile = () => {
           <button className="profile__content-btn__edit-btn">
             Редактировать
           </button>
-          <button className="profile__content-btn__exit-btn">
+          <Link to="/"> <button className="profile__content-btn__exit-btn">
             Выйти из аккаунта
-          </button>
+          </button> </Link>
         </div>
       </div>
     </main>

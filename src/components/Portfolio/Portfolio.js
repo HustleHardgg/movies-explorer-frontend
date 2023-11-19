@@ -9,7 +9,7 @@ const Portfolio = () => {
         <ul className="portfolio__list">
           <li className="portfolio__list-item">
             <a
-              href="https://github.com/altwebga/how-to-learn"
+              href="https://github.com/HustleHardgg/how-to-learn"
               target="_blank"
               rel="noopener noreferrer"
               className="portfolio__link"
@@ -19,7 +19,7 @@ const Portfolio = () => {
           </li>
           <li className="portfolio__list-item">
             <a
-              href="https://github.com/altwebga/russian-travel"
+              href="https://github.com/HustleHardgg/russian-travel-main"
               target="_blank"
               rel="noopener noreferrer"
               className="portfolio__link"
@@ -29,7 +29,7 @@ const Portfolio = () => {
           </li>
           <li className="portfolio__list-item">
             <a
-              href="https://github.com/altwebga/react-mesto-api-full"
+              href="https://github.com/HustleHardgg/react-mesto-api-full-gha"
               target="_blank"
               rel="noopener noreferrer"
               className="portfolio__link"

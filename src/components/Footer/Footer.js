@@ -20,7 +20,7 @@ const Footer = () => {
           </a>
           <a
             className="footer__info-nav__element"
-            href="https://github.com/altwebga"
+            href="https://github.com/HustleHardgg"
             target="_blank"
             rel="noopener noreferrer"
           >

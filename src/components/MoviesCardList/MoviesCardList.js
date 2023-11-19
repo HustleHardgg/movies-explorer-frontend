@@ -17,7 +17,7 @@ function MoviesCardList() {
       <MoviesCard />
       <MoviesCard />
       <MoviesCard />
-      <Preloader />
+
     </ul>
   );
 }

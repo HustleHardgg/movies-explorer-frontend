@@ -8,6 +8,7 @@
 
   border-radius: 6px;
   transition: box-shadow linear 0.3s;
+  position: relative;
 }
 
 .movies-card:hover {
@@ -51,22 +52,39 @@ align-items: center;
 }
 
 .movies-card__content-btn-like {
-   background-image: url(../../images/icon-heart-light.svg);
+   background-image: url(../../images/save-button.svg);
    border: none;
-   width: 30px;
-   height: 30px;
+   width: 72px;
+   height: 21px;
    cursor: pointer;
    background-repeat: no-repeat;
+   border-radius: 10px;
+   position: absolute;
+   top: 14px;
+   right: 14px;
+
 }
 .movies-card__content-btn-like-active {
-  background-image: url(../../images/icon-heart-solid.svg);
+  background-image: url(../../images/save-button2.svg);
   border: none;
-  width: 30px;
-  height: 30px;
+  border-radius: 10.5px;
+  width: 21px;
+  height: 21px;
   cursor: pointer;
   background-repeat: no-repeat;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }
 
 .movies-card__content-btn-like-active:hover {
   background-image: url(../../images/icon-del-like.svg);
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 21px;
+  height: 21px;
+  border: none;
+  border-radius: 10.5px;
+  background-repeat: no-repeat;
 }

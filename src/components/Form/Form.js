@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./Form.css";
 import Logo from "../../images/logo__COLOR_main-1.png";
@@ -6,7 +7,7 @@ function Form({ title, children, btntext, text, path, pathname }) {
   return (
     <div className="form">
       <div className="form-up">
-        <img className="logo" alt="Логотип" src={Logo} />
+       <Link to="/"> <img className="logo" alt="Логотип" src={Logo} /></Link>
         <h3 className="form-up-title">{title}</h3>
       </div>
 

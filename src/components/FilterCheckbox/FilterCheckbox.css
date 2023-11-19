@@ -4,20 +4,11 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-  margin-left: 49px;
+  margin-left: 29px;
   }
 
-.checkbox:before{
-  content: " ";
-  background: rgba(203, 203, 203, 1);
-  ;
-  width: 1px;
-  height: 40px;
-  /* линия смещена на 10px слева от текста*/
-  left: -20px;
-  /* включаем абсолютное позиционирование относительно блока с relative */
-  position: absolute;
-}
+
+
 .checkbox__btn {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -36,7 +27,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;
-  margin: 0;
+  margin-right: 30px;
 }
 
 .checkbox__btn:checked {

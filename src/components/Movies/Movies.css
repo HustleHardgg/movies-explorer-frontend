@@ -1,3 +1,6 @@
+.movies{
+  padding: 70px 70px 80px;
+}
 .btn-content {
   margin: 50px 0 80px;
   padding: 0 70px;
@@ -36,5 +39,8 @@
   }
   .btn-content__btn-more {
     width: 240px;
+  }
+  .movies{
+    padding: 10px 10px 40px;
   }
 }
