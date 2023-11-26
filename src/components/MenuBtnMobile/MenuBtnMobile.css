@@ -1,4 +1,4 @@
-.menu__btn-mobile {
+.menu-btn-mobile {
   display: block;
   background-color: transparent;
   border: none;
@@ -13,12 +13,12 @@
   color: inherit;
 }
 
-.menu__btn-mobile:hover {
+.menu-btn-mobile:hover {
   opacity: 0.8;
   transition: opacity linear 0.5s;
 }
 
-.menu__btn-mobile-invisible {
+.menu-btn-mobile-invisible {
   display: none;
 }
 

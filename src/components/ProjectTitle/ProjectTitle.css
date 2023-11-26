@@ -1,4 +1,4 @@
-.project__title {
+.project-title {
   font-size: 22px;
   font-weight: 400;
   line-height: 27px;
@@ -9,20 +9,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .project__title {
+  .project-title {
     padding-top: 90px;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .project__title {
+  .project-title {
     font-size: 18px;
     line-height: 21px;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .project__title {
+  .project-title {
     padding-top: 70px;
     padding-bottom: 28px;
     width: 100%;

@@ -26,20 +26,20 @@ const AboutProject = () => {
           </p>
         </div>
       </div>
-      <div className="about-project__graph">
-        <div className="about-project__graph-element about-project__graph-element__week-back">
+      <ul className="about-project__graph">
+        <li className="about-project__graph-element about-project__graph-element-week-back">
           1 неделя
-        </div>
-        <div className="about-project__graph-element about-project__graph-element__week-front">
+        </li>
+        <li className="about-project__graph-element about-project__graph-element-week-front">
           4 недели
-        </div>
-        <div className="about-project__graph-element about-project__graph-element__week-text">
+        </li>
+        <li className="about-project__graph-element about-project__graph-element-week-text">
           Back-end
-        </div>
-        <div className="about-project__graph-element about-project__graph-element__week-text">
+        </li>
+        <li className="about-project__graph-element about-project__graph-element-week-text">
           Front-end
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
   );
 };

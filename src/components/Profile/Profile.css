@@ -53,7 +53,7 @@
   gap: 16px;
 }
 
-.profile__content-btn__edit-btn {
+.profile-content-btn-edit-btn {
   border: none;
   background-color: #fff;
   font-size: 13px;
@@ -61,13 +61,13 @@
   line-height: 16px;
 }
 
-.profile__content-btn__edit-btn:hover {
+.profile-content-btn-edit-btn:hover {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity linear 0.5s;
 }
 
-.profile__content-btn__exit-btn {
+.profile-content-btn-exit-btn {
   color: #ff4062;
   border: none;
   background-color: #fff;
@@ -76,7 +76,7 @@
   line-height: 16px;
 }
 
-.profile__content-btn__exit-btn:hover {
+.profile-content-btn-exit-btn:hover {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity linear 0.5s;

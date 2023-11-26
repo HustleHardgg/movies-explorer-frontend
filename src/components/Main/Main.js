@@ -5,6 +5,7 @@ import Promo from "../Promo/Promo";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 
+
 const Main = () => {
   return (
     <main className="main">
@@ -12,6 +13,7 @@ const Main = () => {
       <AboutProject />
       <Techs />
       <AboutMe />
+
     </main>
   );
 };

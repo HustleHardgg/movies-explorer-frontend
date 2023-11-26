@@ -11,18 +11,18 @@ const Register = () => {
       path="/signin"
       pathname="Войти"
     >
-      <div className="input__content">
-        <p className="input__text">Имя</p>
-        <input className="input__element" required />
-        <span className="input__error" />
+      <div className="input-content">
+        <label className="input-text">Имя</label>
+        <input className="input-element" required />
+        <span className="input-error" />
 
-        <p className="input__text">E-mail</p>
-        <input className="input__element" required />
-        <span className="input__error" />
+        <label className="input-text">E-mail</label>
+        <input className="input-element" required />
+        <span className="input-error" />
 
-        <p className="input__text">Пароль</p>
-        <input className="input__element input__element-border" required />
-        <span className="input__error" />
+        <label className="input-text">Пароль</label>
+        <input className="input-element input-element-border" required />
+        <span className="input-error" />
       </div>
     </Form>
   );

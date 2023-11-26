@@ -1,14 +1,15 @@
-.input__text {
+.input-text {
   margin: 0;
   padding-top: 23px;
   color: #a0a0a0;
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
+  display:inline-block;
 }
 
-.input__element {
-  border-radius: 8px ;
+.input-element {
+  border-bottom: 1px solid #e8e8e8;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -17,33 +18,35 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
-  background-color: rgba(249, 249, 249, 1);
+  background-color:  rgba(249, 249, 249, 1);
+  border-radius: 8px;
+
 }
 
-.input__element:focus {
-  border-bottom: 1px solid white;
+.input-element:focus {
+  border-bottom: 1px solid rgb(9, 9, 9);
   outline: none;
 }
 
-.input__element-border {
+.input-element-border {
   margin-bottom: 97px;
 }
 
-.input__error {
+.input-error {
   color: #ff4062;
 }
 
 @media screen and (max-width: 768px) {
-  .input__element-border {
+  .input-element-border {
     margin-bottom: 69px;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .input__element {
+  .input-element {
     min-width: 260px;
   }
-  .input__element-border {
+  .input-element-border {
     margin-bottom: 157px;
   }
 }

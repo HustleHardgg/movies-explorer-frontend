@@ -11,7 +11,7 @@ const Footer = () => {
         <span className="footer__info-span">© 2022</span>
         <nav className="footer__info-nav">
           <a
-            className="footer__info-nav__element"
+            className="footer__info-nav-element"
             href="https://practicum.yandex.ru"
             target="_blank"
             rel="noopener noreferrer"
@@ -19,7 +19,7 @@ const Footer = () => {
             Яндекс.Практикум
           </a>
           <a
-            className="footer__info-nav__element"
+            className="footer__info-nav-element"
             href="https://github.com/HustleHardgg"
             target="_blank"
             rel="noopener noreferrer"

@@ -6,7 +6,7 @@ function Account() {
   return (
     <nav className="header__navigate">
       <Link className="header__navigate-text" to="/profile">
-        <button className="menu__btn-account">
+        <button type="button" className="menu__btn-account">
           Аккаунт<svg className="menu__btn-account-img"></svg>
         </button>
       </Link>

@@ -1,16 +1,14 @@
 .promo {
   background-color: rgba(243, 193, 248, 1);
-  background-image: url(../../images/pic__COLOR_landing-logo.png) ;
+  background-image: url(../../images/pic__COLOR_landing-logo.svg) ;
   background-repeat: no-repeat;
   background-position: center;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .promo__text {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;

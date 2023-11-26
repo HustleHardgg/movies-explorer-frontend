@@ -7,8 +7,8 @@ function MenuBtnMobile({ handleClick, isOpen }) {
       <button
           className={
       !isOpen
-            ? 'menu__btn-mobile'
-            : 'menu__btn-mobile menu__btn-mobile-invisible'
+            ? 'menu-btn-mobile'
+            : 'menu-btn-mobile menu-btn-mobile-invisible'
           }
 
         type='button'

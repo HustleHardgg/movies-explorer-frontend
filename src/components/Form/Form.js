@@ -5,10 +5,11 @@ import Logo from "../../images/logo__COLOR_main-1.png";
 
 function Form({ title, children, btntext, text, path, pathname }) {
   return (
-    <div className="form">
+  <main className="main">
+    <form className="form">
       <div className="form-up">
        <Link to="/"> <img className="logo" alt="Логотип" src={Logo} /></Link>
-        <h3 className="form-up-title">{title}</h3>
+        <h1 className="form-up-title">{title}</h1>
       </div>
 
       <form className="form-content">{children}</form>
@@ -25,7 +26,8 @@ function Form({ title, children, btntext, text, path, pathname }) {
           </a>
         </p>
       </div>
-    </div>
+    </form>
+  </main>
   );
 }
 

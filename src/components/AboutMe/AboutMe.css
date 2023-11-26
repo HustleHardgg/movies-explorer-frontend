@@ -11,7 +11,7 @@
   height: 327px;
 }
 
-.about-me__info-foto__foto {
+.about-me__info-foto-foto {
   object-fit: cover;
   height: 100%;
   width: 100%;
@@ -29,35 +29,35 @@
   width: 60%;
 }
 
-.about-me__info-text__name {
+.about-me__info-text-name {
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
   margin: 0;
 }
 
-.about-me__info-text__job {
+.about-me__info-text-job {
   margin: 18px 0 0;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
 }
 
-.about-me__info-text__text {
+.about-me__info-text-text {
   margin: 30px 0 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
 }
 
-.about-me__info-text__nav {
+.about-me__info-text-nav {
   display: flex;
   flex-direction: row;
   margin-top: 105px;
   gap: 20px;
 }
 
-.about-me__info-text__nav-element {
+.about-me__info-text-nav-element {
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
@@ -65,7 +65,7 @@
   color: #000;
 }
 
-.about-me__info-text__nav-element:hover {
+.about-me__info-text-nav-element:hover {
   opacity: 0.8;
   transition: opacity linear 0.3s;
 }
@@ -77,16 +77,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-me__info-text__name {
+  .about-me__info-text-name {
     font-size: 40px;
     line-height: 40px;
   }
-  .about-me__info-text__job {
+  .about-me__info-text-job {
     margin-top: 16px;
     font-size: 12px;
     line-height: 18px;
   }
-  .about-me__info-text__text {
+  .about-me__info-text-text {
     margin-top: 20px;
     font-size: 12px;
     line-height: 18px;
@@ -101,16 +101,16 @@
 }
 
 @media screen and (max-width: 620px) {
-  .about-me__info-text__name {
+  .about-me__info-text-name {
     font-size: 40px;
     line-height: 40px;
   }
-  .about-me__info-text__job {
+  .about-me__info-text-job {
     margin-top: 16px;
     font-size: 12px;
     line-height: 18px;
   }
-  .about-me__info-text__text {
+  .about-me__info-text-text {
     font-size: 11px;
     line-height: 16px;
   }
@@ -132,10 +132,10 @@
     padding-right: 0px;
     width: 100%;
   }
-  .about-me__info-text__job {
+  .about-me__info-text-job {
     margin-top: 20px;
   }
-  .about-me__info-text__nav {
+  .about-me__info-text-nav {
     margin-top: 40px;
     gap: 26px;
   }

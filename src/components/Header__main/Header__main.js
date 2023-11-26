@@ -34,16 +34,16 @@ function Header__main() {
 
   if (width < breakpoint) {
     return (
-      <header className="header__main">
-        <Link className="header__main_logo" to="/">
+      <header className="header header-main">
+        <Link className="header__logo" to="/">
         <img src={Logo} alt="Лого" />
         </Link>
         {location.pathname === "/" && (
-          <nav className="header__main_link">
-            <Link className="header__main_link-element" to="/signup">
+          <nav className="header__link">
+            <Link className="header__link-element" to="/signup">
               Регистрация
             </Link>
-            <Link className="header__main_link-element" to="/signin">
+            <Link className="header__link-element" to="/signin">
               Войти
             </Link>
           </nav>
@@ -95,17 +95,17 @@ function Header__main() {
   }
 
   return (
-    <header className="header__main">
-        <Link className="header__main_logo" to="/">
+    <header className="header header-main">
+        <Link className="header__logo" to="/">
         <img src={Logo} alt="Лого" />
         </Link>
 
       {location.pathname === "/" && (
-        <nav className="header__main_link">
-          <Link className="header__main_link-element" to="/signup">
+        <nav className="header__link">
+          <Link className="header__link-element" to="/signup">
             Регистрация
           </Link>
-          <Link className="header__main_link-element" to="/signin">
+          <Link className="header__link-element" to="/signin">
             Войти
           </Link>
         </nav>

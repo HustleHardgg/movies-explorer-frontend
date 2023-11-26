@@ -23,7 +23,7 @@ function Menu({ isOpen, handleClick, onClose }) {
   return (
     <>
       <div
-        className={isOpen ? "menu__left" : "menu__left menu__left_none"}
+        className={isOpen ? "menu-left" : "menu-left menu-left_none"}
         onClick={closeByOverlay}
       ></div>
 
@@ -38,21 +38,21 @@ function Menu({ isOpen, handleClick, onClose }) {
           onClose={onClose}
         ></button>
 
-        <nav className="navigate__menu">
-          <Link className="navigate__menu-link" to="/">
+        <nav className="navigate-menu">
+          <Link className="menu-link" to="/">
             Главная
           </Link>
 
-          <Link className="navigate__menu-link" to="/movies">
+          <Link className="menu-link" to="/movies">
             Фильмы
           </Link>
 
-          <Link className="navigate__menu-link" to="/saved-movies">
+          <Link className="menu-link" to="/saved-movies">
             Сохраненные фильмы
           </Link>
         </nav>
-        <Link className="navigate__menu-link" to="/profile">
-          <button className="menu__btn-account">
+        <Link className="menu-link" to="/profile">
+          <button type="button" className="menu__btn-account">
             Аккаунт<svg className="menu__btn-account-img"></svg>
           </button>
         </Link>

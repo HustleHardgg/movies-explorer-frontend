@@ -3,7 +3,7 @@ import "./NavTab.css";
 
 const NavTab = () => {
   return (
-    <section className="nav">
+    <nav className="nav">
       <ul className="nav__list">
         <li className="nav__list-item">
           <a className="nav__link" href="#about-project">
@@ -23,7 +23,7 @@ const NavTab = () => {
           </a>
         </li>
       </ul>
-    </section>
+    </nav>
   );
 };
 

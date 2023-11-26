@@ -2,3 +2,11 @@
   height: 140px;
   background: #fafafa;
 }
+.save-movies{
+  padding: 80px 70px;
+}
+@media screen and (max-width: 768px) {
+  .save-movies{
+    padding: 80px 30px;
+  }
+}

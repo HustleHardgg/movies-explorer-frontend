@@ -10,6 +10,8 @@ import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Header__main from "../Header__main/Header__main";
+import "../../vendor/fonts/fonts.css";
+
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
           path="/"
           element={
             <>
-              <Header__main />
+              <Header__main/>
               <Main />
               <Footer />
             </>

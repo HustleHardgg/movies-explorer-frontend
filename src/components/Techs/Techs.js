@@ -14,15 +14,15 @@ const Techs = () => {
         </p>
       </div>
 
-      <div className="technologies__list">
-        <div className="technologies__list-element">HTML</div>
-        <div className="technologies__list-element">CSS</div>
-        <div className="technologies__list-element">JS</div>
-        <div className="technologies__list-element">React</div>
-        <div className="technologies__list-element">Git</div>
-        <div className="technologies__list-element">Express.js</div>
-        <div className="technologies__list-element">mongoDB</div>
-      </div>
+      <ul className="technologies-list">
+        <li className="technologies-list-element">HTML</li>
+        <li className="technologies-list-element">CSS</li>
+        <li className="technologies-list-element">JS</li>
+        <li className="technologies-list-element">React</li>
+        <li className="technologies-list-element">Git</li>
+        <li className="technologies-list-element">Express.js</li>
+        <li className="technologies-list-element">mongoDB</li>
+      </ul>
     </section>
   );
 };
