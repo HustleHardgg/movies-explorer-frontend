@@ -32,7 +32,7 @@
 .movies-card__content-text{
 display: flex;
 justify-content: space-between;
-align-items: center;
+align-items: flex-start;
 
 }
 
@@ -49,6 +49,8 @@ align-items: center;
   line-height: 13px;
   color: #a0a0a0;
   background-color: rgba(249, 249, 249, 1);
+  margin: 0;
+
 }
 
 .movies-card__content-btn-like {
@@ -87,4 +89,19 @@ align-items: center;
   border: none;
   border-radius: 10.5px;
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card__content {
+
+    padding-top: 28px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
+@media screen and (max-width: 450px) {
+  .movies-card__content {
+    padding-top: 15px;
+  }
 }

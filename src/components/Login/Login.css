@@ -1,6 +1,6 @@
 .input-text {
   margin: 0;
-  padding-top: 23px;
+  padding-top: 20px;
   color: #a0a0a0;
   font-size: 10px;
   font-weight: 400;
@@ -23,8 +23,8 @@
 }
 
 .input-element:focus {
-  border-bottom: 1px solid #000;
-  outline: solid;
+
+  outline: none;
 }
 
 .input-element-border-one {

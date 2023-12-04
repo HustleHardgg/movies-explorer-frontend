@@ -2,7 +2,7 @@
   padding: 70px 70px 80px;
 }
 .btn-content {
-  margin: 50px 0 80px;
+  margin: 55px 0 80px;
   padding: 0 70px;
   display: flex;
   justify-content: center;
@@ -31,6 +31,11 @@
   .btn-content {
     padding: 0 30px;
   }
+  .movies{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 80px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -41,6 +46,8 @@
     width: 240px;
   }
   .movies{
-    padding: 10px 10px 40px;
+    padding-top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

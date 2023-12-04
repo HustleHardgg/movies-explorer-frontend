@@ -52,8 +52,8 @@ function Menu({ isOpen, handleClick, onClose }) {
           </Link>
         </nav>
         <Link className="menu-link" to="/profile">
-          <button type="button" className="menu__btn-account">
-            Аккаунт<svg className="menu__btn-account-img"></svg>
+          <button type="button" className="menu-btn-account">
+            Аккаунт<svg className="menu-btn-account-img"></svg>
           </button>
         </Link>
       </div>

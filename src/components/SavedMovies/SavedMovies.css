@@ -3,7 +3,7 @@
   background: #fafafa;
 }
 .save-movies{
-  padding: 80px 70px;
+  padding: 70px 70px;
 }
 @media screen and (max-width: 768px) {
   .save-movies{

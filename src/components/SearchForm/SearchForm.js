@@ -3,7 +3,7 @@ import { useLocation} from 'react-router-dom';
 import './SearchForm.css';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import searchIcon from '../../images/search_icon.svg'
+import searchIcon from '../../images/icon-find.svg'
 
 import FormValidation from '../../utils/FormValidation';
 import CurrentUserContext from '../../context/CurrentUserContext';

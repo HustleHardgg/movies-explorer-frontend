@@ -6,7 +6,7 @@
 
 .portfolio__container {
   width: 100%;
-  padding: 100px 0 125px 0;
+  padding: 100px 0 205px 0;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -82,6 +82,7 @@
 @media screen and (max-width: 768px) {
   .portfolio__container {
     padding: 90px 0;
+    padding-bottom: 169px;
   }
 
   .portfolio__link {
@@ -98,6 +99,7 @@
   .portfolio__container {
     padding: 70px 0;
     gap: 40px;
+    padding-bottom: 150px;
   }
 
   .portfolio__link {

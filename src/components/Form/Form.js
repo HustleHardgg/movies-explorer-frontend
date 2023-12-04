@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Form.css";
-import Logo from "../../images/logo__COLOR_main-1.png";
+import Logo from "../../images/logo.svg";
 
 function Form({ title, children, btntext, text, path, pathname }) {
   return (
@@ -12,7 +12,7 @@ function Form({ title, children, btntext, text, path, pathname }) {
         <h1 className="form-up-title">{title}</h1>
       </div>
 
-      <form className="form-content">{children}</form>
+      <form className="form-content">{children}
 
       <div className="form-btn">
         <button className="form-btn__item" type="submit">
@@ -26,6 +26,7 @@ function Form({ title, children, btntext, text, path, pathname }) {
           </a>
         </p>
       </div>
+      </form>
     </form>
   </main>
   );

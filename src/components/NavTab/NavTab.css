@@ -1,11 +1,12 @@
 .nav {
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
   display: flex;
   justify-content: center;
   background-color: #000;
   width: 100%;
-
+  height: 66px;
+  align-items: center;
 }
 
 .nav__list {
@@ -13,6 +14,7 @@
   display: flex;
   gap: 40px;
   padding: 0;
+  margin-top: 17px;
 }
 
 .nav__list-item {
@@ -20,25 +22,37 @@
 }
 
 .nav__link {
+
+font-size: 13px;
+font-weight: 500;
+line-height: 16px;
+letter-spacing: 0px;
+text-align: left;
+
   color:  white;
 
-  font-size: 12px;
   font-weight: 500;
-  line-height: 16px;
+
   text-decoration: underline;
+
 }
 
 
 @media screen and (max-width: 620px) {
   .nav__list {
-    gap: 6px;
+    gap: 24px;
   }
   .nav__link {
-    font-size: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+
   }
   .nav__list-item {
 
     border-radius: 8px;
-    padding: 5px 20px;
+
   }
 }

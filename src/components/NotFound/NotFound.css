@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   margin: auto;
 }
 
@@ -12,6 +12,7 @@
   font-size: 140px;
   font-weight: 400;
   margin: 0;
+  padding-top: 250px;
 }
 
 .not-found__text {
@@ -19,7 +20,8 @@
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  margin: 5px 0 0;
+  margin: 10px 0 0;
+
 }
 
 .not-found__back {
@@ -36,23 +38,29 @@
 
 @media screen and (max-width: 768px) {
   .not-found__err-number {
+    padding-top: 410px;
+  }
+  .not-found__text {
 
+    margin: 10px 0 0;
   }
 }
 
 @media screen and (max-width: 450px) {
   .not-found__err-number {
-
+    padding-top: 330px;
     font-size: 80px;
     font-weight: 400;
     line-height: 97px;
   }
+
   .not-found__text {
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
     margin: 10px 0 0;
   }
+
   .not-found__back {
     font-size: 12px;
     font-weight: 400;

@@ -69,24 +69,26 @@
   border-bottom: 2px solid #000;
 }
 
-.menu__btn-account {
+.menu-btn-account {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 12px;
   margin: 0;
   background: none;
   border: none;
   gap: 17px;
+  padding: 0;
+  cursor: pointer;
 }
 
-.menu__btn-account-img {
-  background-image: url(../../images/icon__COLOR_icon-main.png);
+.menu-btn-account-img {
+  background-image: url(../../images/icon__COLOR_icon-main.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #f9f9f9;
+  background-color: rgba(249, 249, 249, 1);
   width: 26px;
   height: 30px;
   border-radius: 4px;

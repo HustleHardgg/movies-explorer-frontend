@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./Header__main.css";
-import Logo from "../../images/logo__COLOR_main-1.png";
+import Logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import Account from "../Account/Account";
 import Menu from "../Menu/Menu";

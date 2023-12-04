@@ -6,12 +6,13 @@
 .form-up {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 36px;
   padding-top: 70px;
 }
 
 .form-up-title {
-  margin: 0 0 40px;
+ margin: 0px;
+ padding-bottom: 20px;
 }
 
 .logo {
@@ -20,9 +21,12 @@
 }
 
 .form-up-title {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 29px;
+font-size: 24px;
+font-weight: 500;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+
 }
 
 .form-btn {
@@ -83,9 +87,9 @@
 @media screen and (max-width: 450px) {
   .form-up {
     padding-top: 56px;
-    padding-bottom: 80px;
+    padding-bottom: 39px;
     align-items: center;
-    gap: 50px;
+    gap: 48px;
   }
   .form {
     max-width: 260px;

@@ -1,5 +1,6 @@
 .about-me {
   padding: 0 70px;
+  padding-top: 110px;
 }
 
 .about-me__content {
@@ -30,17 +31,27 @@
 }
 
 .about-me__info-text-name {
+  font-weight: 400;
+  margin: 0;
+  font-family: Inter;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
-  margin: 0;
 }
 
 .about-me__info-text-job {
   margin: 18px 0 0;
-  font-size: 18px;
   font-weight: 500;
   line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-align: left;
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .about-me__info-text-text {
@@ -48,12 +59,15 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+
 }
 
 .about-me__info-text-nav {
   display: flex;
   flex-direction: row;
-  margin-top: 105px;
+  margin-top: 99px;
   gap: 20px;
 }
 
@@ -81,22 +95,38 @@
     font-size: 40px;
     line-height: 40px;
   }
+
   .about-me__info-text-job {
     margin-top: 16px;
     font-size: 12px;
     line-height: 18px;
   }
+
   .about-me__info-text-text {
     margin-top: 20px;
     font-size: 12px;
+    font-weight: 400;
     line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
   }
+
   .about-me__info-foto {
     width: 255px;
     height: 307px;
   }
+
   .about-me__info-text {
-    padding-right: 49px;
+    padding-right: 15px;
+  }
+
+  .about-me {
+    padding-top: 90px;
+  }
+
+  .about-me__info-text-nav {
+    margin-top: 87px;
+
   }
 }
 
@@ -105,11 +135,13 @@
     font-size: 40px;
     line-height: 40px;
   }
+
   .about-me__info-text-job {
     margin-top: 16px;
     font-size: 12px;
     line-height: 18px;
   }
+
   .about-me__info-text-text {
     font-size: 11px;
     line-height: 16px;
@@ -120,23 +152,60 @@
   .about-me {
     padding: 0 14px;
   }
+
   .about-me__content {
     margin-top: 60px;
   }
+
   .about-me__info {
     flex-direction: column-reverse;
-    align-items: center;
+
   }
+
   .about-me__info-text {
     padding-top: 40px;
     padding-right: 0px;
     width: 100%;
   }
+
   .about-me__info-text-job {
     margin-top: 20px;
   }
+
   .about-me__info-text-nav {
     margin-top: 40px;
     gap: 26px;
+  }
+
+  .about-me__info-foto-foto {
+    display: flex;
+    height: 352px;
+    width: 292px;
+    border-radius: 10px;
+    object-fit: cover;
+
+
+
+  }
+
+  .about-me__info-text-name {
+    padding-top: 45px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: -0.04em;
+    text-align: left;
+  }
+
+  .about-me__info-text-text {
+    margin-top: 20px;
+
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    width: 292px;
   }
 }

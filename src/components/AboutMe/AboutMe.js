@@ -13,7 +13,7 @@ const AboutMe = () => {
           <div className="about-me__info-text">
             <h3 className="about-me__info-text-name">Виталий</h3>
             <p className="about-me__info-text-job">
-              Фронтенд-разработчик 30 лет
+              Фронтенд-разработчик, 30 лет
             </p>
             <p className="about-me__info-text-text">
               Я родился и живу в Саратове, закончил факультет экономики СГУ. У
@@ -25,7 +25,7 @@ const AboutMe = () => {
             <nav className="about-me__info-text-nav">
               <a
                 className="about-me__info-text-nav-element"
-                href="https://github.com/altwebga"
+                href="https://github.com/HustleHardgg"
                 target="_blank"
                 rel="noopener noreferrer"
               >

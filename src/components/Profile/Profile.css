@@ -1,5 +1,5 @@
 .profile__content {
-  padding-top: 74px;
+  padding-top: 73px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +50,7 @@
   max-width: 410px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .profile-content-btn-edit-btn {
@@ -85,6 +85,10 @@
 @media screen and (max-width: 768px) {
   .profile__content-user {
     padding-bottom: 210px;
+    padding-top: 95px;
+  }
+  .profile__content {
+    padding-top: 236px;
   }
 }
 
