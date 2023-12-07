@@ -22,7 +22,7 @@
   .movies-list {
 
     grid-row-gap: 14px;
-    margin: 65px auto 30px;
+    margin: 50px auto 30px;
     grid-template-columns: repeat(auto-fit, 300px);
   }
 }

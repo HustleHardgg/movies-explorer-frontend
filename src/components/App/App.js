@@ -9,8 +9,8 @@ import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
-import Header__main from "../Header__main/Header__main";
-import "../../vendor/fonts/fonts.css";
+import HeaderMain from "../Header__main/Header__main";
+
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           path="/"
           element={
             <>
-              <Header__main/>
+              <HeaderMain/>
               <Main />
               <Footer />
             </>

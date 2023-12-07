@@ -121,3 +121,16 @@
     }
   }
 
+  @media screen and (max-width: 450px) {
+    .navigate-menu{
+      gap: 24px;
+    }
+
+    .menu-btn {
+    top: 18.16px;
+    right: 44.16px;
+  }
+  .menu-btn-account{
+    padding-bottom: 100px;
+  }
+}

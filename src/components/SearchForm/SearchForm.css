@@ -86,7 +86,10 @@
 
 @media screen and (max-width: 768px) {
   .line {
-    margin: 69px 0 50px 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 80px;
+    margin-top: 109px;
   }
 }
 
@@ -97,7 +100,7 @@
   }
 
   .line {
-    margin-top: 19px;
+    margin-top: 34px;
     margin-bottom: 0px;
   }
 
@@ -111,5 +114,6 @@
     line-height: 20px;
     letter-spacing: 0px;
     text-align: left;
+    margin-left: 15px;
   }
 }

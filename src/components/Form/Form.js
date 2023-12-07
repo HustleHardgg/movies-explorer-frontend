@@ -12,7 +12,7 @@ function Form({ title, children, btntext, text, path, pathname }) {
         <h1 className="form-up-title">{title}</h1>
       </div>
 
-      <form className="form-content">{children}
+      <div className="form-content">{children}
 
       <div className="form-btn">
         <button className="form-btn__item" type="submit">
@@ -26,7 +26,7 @@ function Form({ title, children, btntext, text, path, pathname }) {
           </a>
         </p>
       </div>
-      </form>
+      </div>
     </form>
   </main>
   );
