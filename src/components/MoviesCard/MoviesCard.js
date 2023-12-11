@@ -1,32 +1,65 @@
-import React, { useState } from 'react';
+import React from "react";
 import "./MoviesCard.css";
-import imageCard from "../../images/image-card.jpg";
+import { useLocation, matchPath } from "react-router";
+import SaveBtn from "../SaveBtn/SaveBtn";
+import { getTimeFromMin } from "../../utils/utils";
 
+function MoviesCard({ moviesCard, moviesCardList, onSave, onDelete }) {
+  const isSaved =
+    moviesCard.id && moviesCardList.some((m) => m.movieId === moviesCard.id);
 
-const MoviesCard = () => {
-  const [isLike, setLike] = useState("false");
-  const handleToggle = () => {
-    setLike(!isLike);
+  const location = useLocation();
+
+  const handleClickMovie = () => {
+    if (isSaved) {
+      onDelete(moviesCardList.filter((m) => m.movieId === moviesCard.id)[0]);
+    } else {
+      onSave(moviesCard);
+      console.log(moviesCard);
+    }
   };
+
+  const handleDeleteClick = () => {
+    console.log(moviesCard);
+    onDelete(moviesCard);
+  };
+
   return (
-      <li className="movies-card">
-        <button type="button" className={isLike ? "movies-card__content-btn-like" : "movies-card__content-btn-like-active"} onClick={handleToggle}></button>
+    <li className="movies-card">
+      <a
+        className="movies-card__link"
+        href={moviesCard.trailerLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img
           className="movies-card__img"
-          alt="изображение фильма"
-          src={imageCard}
+          alt={`Фото к фильму ${moviesCard.nameRu}`}
+          src={moviesCard.image}
         />
-
-        <div className="movies-card__content">
-
-          <div className="movies-card__content-text">
-            <h2 className="movies-card__content-text-title">Бег это свобода</h2>
-            <p className="movies-card__content-text-duration">1ч 44м</p>
-          </div>
-
+      </a>
+      <div className="movies-card__content">
+        <div className="movies-card__content-text">
+          <h3 className="movies-card__content-text-title">
+            {moviesCard.nameRU}
+          </h3>
+          <p className="movies-card__content-text-duration">
+            {getTimeFromMin(moviesCard.duration)}
+          </p>
         </div>
-      </li>
+        {matchPath({ path: "/movies" }, location.pathname) && (
+          <SaveBtn isSavedMovie={isSaved} onClick={handleClickMovie} />
+        )}
+        {matchPath({ path: "/saved-movies" }, location.pathname) && (
+          <button
+            type="button"
+            className="movies-card__content-btn-del"
+            onClick={handleDeleteClick}
+          />
+        )}
+      </div>
+    </li>
   );
-};
+}
 
 export default MoviesCard;

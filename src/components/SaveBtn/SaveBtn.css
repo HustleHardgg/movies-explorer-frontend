@@ -1,0 +1,25 @@
+.movies-card__content-btn-save {
+  background-image: url(../../images/icon-heart-light.svg);
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.movies-card__content-btn-save-active {
+ background-image: url(../../images/icon-heart-solid.svg);
+ border: none;
+ width: 30px;
+ height: 30px;
+ cursor: pointer;
+ background-repeat: no-repeat;
+}
+
+.movies-card__content-btn-del {
+  background-image: url(../../images/icon-del-like.svg);
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}

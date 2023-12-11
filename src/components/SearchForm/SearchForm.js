@@ -1,79 +1,102 @@
-import React from 'react';
-import { useLocation} from 'react-router-dom';
-import './SearchForm.css';
-
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import React, { useState, useEffect } from "react";
+import "./SearchForm.css";
+import "../FilterCheckbox/FilterCheckbox.css"
 import searchIcon from '../../images/icon-find.svg'
 
-import FormValidation from '../../utils/FormValidation';
-import CurrentUserContext from '../../context/CurrentUserContext';
+function SearchForm({ onSearchMovies, savedMoviesRoute }) {
+  const [keyWord, setKeyWord] = useState("");
+  const [checkBoxStatus, setCheckBoxStatus] = useState(false);
 
+  const [error, setError] = useState(false);
 
-function SearchForm({ filter, setFilter, handleSearchSubmit, searchSavedMovies,searchTag }) {
-    const currentUser = React.useContext(CurrentUserContext);
-    const { values, handleChange, isValid, setIsValid } = FormValidation();
+  useEffect(() => {
+    if (!savedMoviesRoute) {
+      const query = localStorage.getItem("keyWord");
 
-    const location = useLocation();
+      if (query) {
+        setKeyWord(query);
+      }
+    }
+  }, [savedMoviesRoute]);
 
-    const [errorQuery, setErrorQuery] = React.useState('');
+  useEffect(() => {
+    if (!savedMoviesRoute) {
+      const status = localStorage.getItem("checkBoxStatus");
 
+      if (JSON.parse(status) === true) {
+        setCheckBoxStatus(true);
+      } else {
+        setCheckBoxStatus(false);
+      }
+    }
+  }, [savedMoviesRoute]);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (location.pathname === '/movies') {
-            isValid ? handleSearchSubmit(values.search) : setErrorQuery('Нужно ввести ключевое слово.');
-        } else {
-            isValid ? searchSavedMovies(values.search) : setErrorQuery('Нужно ввести ключевое слово.');
-        }
-    };
+  const handleSubmitSearchForm = (e) => {
+    e.preventDefault();
+    if (!keyWord) {
+      setError(true);
+    } else {
+      setError(false);
+      onSearchMovies(keyWord, checkBoxStatus);
+    }
+  };
 
-    React.useEffect(() => {
-        setErrorQuery('')
-    }, [isValid]);
+  const handleSearchInputChange = (e) => {
+    setKeyWord(e.target.value);
+    setError(false);
+  };
 
-    React.useEffect(() => {
-        // values.search = localStorage.getItem('searchTag');
-        values.search = searchTag;
+  const handleCheckBoxChange = (e) => {
+    setCheckBoxStatus(e.target.checked);
+    onSearchMovies(keyWord, e.target.checked);
+  };
 
+  return (
+    <section className="">
+      <form
+        className="search-form"
+        onSubmit={handleSubmitSearchForm}
+        noValidate
+      >
+        <div className="search-form__form">
+          <img src={searchIcon} alt='иконка поиска фильма' className="search-form__icon"></img>
+          <input
+            className="search-form__field-input-movie"
+            type="text"
+            placeholder="Фильм"
+            required
+            onChange={handleSearchInputChange}
+            autoComplete="off"
+            value={keyWord || ""}
+          />
 
-    }, [currentUser])
+          <button
+            className="search-form__movie-search-button"
+            type="submit"
+            onChange={handleCheckBoxChange}
+          >
+            Найти
+          </button>
 
-    return (
-        <>
-            <section className='search-form'>
-                <form className='search-form__form' name='search' noValidate onSubmit={handleSubmit}>
-                    <img src={searchIcon} alt='иконка поиска фильма' className='search-form__icon' />
-                    <input
-                        placeholder='Фильм'
-                        className='search-form__field-input-movie'
-                        id='search'
-                        name='search'
-                        required
-                        type='text'
-                        autoComplete='off'
-                        value={values.search || ''}
-                        onChange={handleChange}
-                    />
-                    <span className='search-form__error'>
-                        {errorQuery}
-                    </span>
-                    <button
-                        className='search-form__movie-search-button'
-                        id='movieSearchButton'
-                        type='submit'
+          <span className="search-form__error">
+            {error ? " Нужно ввести ключевое слово." : ""}
+          </span>
+        </div>
 
-                    >Найти
-                    </button>
-                </form>
-                <div className='search-form__form-line'></div>
-                <FilterCheckbox
-                    filter={filter}
-                    setFilter={setFilter}
-                />
-            </section>
-            <div className='line'></div>
-        </>
-    )
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            className="checkbox__btn"
+            onChange={handleCheckBoxChange}
+          />
+          <p className="checkbox__btn-text">Короткометражки</p>
+        </div>
+      </form>
+      <></>
+      <div className='line'></div>
+    </section>
+
+  );
 }
 
 export default SearchForm;
