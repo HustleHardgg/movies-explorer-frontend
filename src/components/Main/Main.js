@@ -13,7 +13,6 @@ const Main = () => {
       <AboutProject />
       <Techs />
       <AboutMe />
-
     </main>
   );
 };

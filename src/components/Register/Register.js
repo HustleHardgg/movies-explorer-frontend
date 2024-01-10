@@ -1,93 +1,70 @@
 import React, { useState } from "react";
 import "./Register.css";
 import Form from "../Form/Form";
-import useFormWithValidation from "../../utils/validation.js";
+import { API_URL, TOKEN } from "../../constants/AppConstants";
+import { singUp as fetchSignUp, signIn as fetchSignIn } from "../../services/MainApi";
+import { useNavigate } from "react-router-dom";
 
-function Register({ onRegister, message }) {
-  const [isMessage, setIsMessage] = useState(false);
-  const { values, handleChange, errors, isValid, resetForm } =
-    useFormWithValidation();
+const Register = () => {
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  })
 
-  function handleSubmit(e) {
+  const signUp = async (e) => {
     e.preventDefault();
-    onRegister({
-      name: values.name,
-      email: values.email,
-      password: values.password,
-    });
-    resetForm();
-    setIsMessage(true);
+
+    try {
+      setLoading(true)
+      // register
+      await fetchSignUp(formData);
+      // sign in and get the token 
+      const data = await fetchSignIn({
+        email: formData.email,
+        password: formData.password
+      });
+      // save the token in local storage
+      localStorage.setItem(TOKEN, data.token)
+      navigate('/movies');
+    } catch (err) {
+      setLoading(false)
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const onChange = (e) => {
+    setFormData((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
 
   return (
     <Form
+      onSubmit={signUp}
       title="Добро пожаловать!"
-      onSubmit={handleSubmit}
       btntext="Зарегистрироваться"
       text="Уже зарегистрированы?"
       path="/signin"
       pathname="Войти"
-      isValid={isValid}
-      disabled={isValid}
-      onRegister={onRegister}
     >
       <div className="input-content">
-        <p className="input-text">Имя</p>
-        <input
-          className={`input-element ${
-            !isValid && errors.name && "input-error-activ"
-          }`}
-          required
-          pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
-          name="name"
-          type="text"
-          minLength="2"
-          maxLength="30"
-          value={values.name || ""}
-          error={errors.name}
-          onChange={handleChange}
-        />
-        <span className="input-error">{errors.name}</span>
+        <label className="input-text">Имя</label>
+        <input className="input-element" required onChange={onChange} value={formData.name} name='name' />
+        <span className="input-error" />
 
-        <p className="input-text">E-mail</p>
-        <input
-          className={`input-element ${
-            !isValid && errors.name && "input-error-activ"
-          }`}
-          required
-          pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
-          autoComplete="on"
-          name="email"
-          text="email"
-          value={values.email || ""}
-          error={errors.email}
-          onChange={handleChange}
-        />
-        <span className="input-error">{errors.email}</span>
+        <label className="input-text">E-mail</label>
+        <input className="input-element" required onChange={onChange} value={formData.email} name='email' />
+        <span className="input-error" />
 
-        <p className="input-text">Пароль</p>
-        <input
-          className={`input-element input-element-border ${
-            !isValid && errors.name && "input-error-activ"
-          }`}
-          required
-          name="password"
-          text="пароль"
-          type="password"
-          minLength="4"
-          maxLength="30"
-          value={values.password || ""}
-          error={errors.password}
-          onChange={handleChange}
-        />
-        <span className="input-error input-error-border">
-          {errors.password}
-        </span>
+        <label className="input-text">Пароль</label>
+        <input className="input-element input-element-border" required onChange={onChange} value={formData.password} name='password' />
+        <span className="input-error" />
       </div>
-
-      <p className={isMessage ? "input-error-reg-res" : ""}>{message}</p>
     </Form>
   );
-}
+};
 
 export default Register;

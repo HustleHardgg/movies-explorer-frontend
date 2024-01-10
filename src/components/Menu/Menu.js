@@ -23,7 +23,7 @@ function Menu({ isOpen, handleClick, onClose }) {
   return (
     <>
       <div
-        className={isOpen ? "menu__left" : "menu__left menu__left_none"}
+        className={isOpen ? "menu-left" : "menu-left menu-left_none"}
         onClick={closeByOverlay}
       ></div>
 

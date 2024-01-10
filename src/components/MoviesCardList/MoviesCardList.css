@@ -1,5 +1,6 @@
 .movies-list {
   display: grid;
+
   grid-column-gap: 30px;
   grid-row-gap: 49px;
   grid-template-columns: repeat(3, 1fr);

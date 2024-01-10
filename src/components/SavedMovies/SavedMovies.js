@@ -1,58 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { searchAndFilterMovies } from "../../utils/utils";
 
-function SavedMovies({ moviesCardList, onDelete }) {
-  const [searchMovies, setSearchMovies] = useState([]);
-  const [isSearchComplited, setIsSearchComplited] = useState(false);
+const SavedMovies = () => {
+  const [searchValue, setSearchValue] = useState('')
+  const [checkboxValue, setCheckboxValue] = useState(false)
 
-  const [keyWord, setKeyWord] = useState("");
-  const [checkBoxStatus, setCheckBoxStatus] = useState(false);
+  const visibleMovies = useMemo(() => {
+    const movies = JSON.parse(localStorage.getItem('savedMovies')) ?? []
+    let filteredMovies = movies
+      .filter((movie) => movie.nameRU?.includes(searchValue))
 
-  const handleSearchMovies = (keyWord, checkBoxStatus) => {
-    setKeyWord(keyWord);
-    setCheckBoxStatus(checkBoxStatus);
-    setSearchMovies(
-      searchAndFilterMovies(moviesCardList, keyWord, checkBoxStatus)
-    );
-    setIsSearchComplited(true);
-  };
-
-  useEffect(() => {
-    if (searchMovies.length > 0) {
-      setSearchMovies(
-        searchAndFilterMovies(moviesCardList, keyWord, checkBoxStatus)
-      );
-    } else {
-      setSearchMovies(moviesCardList);
+    if (checkboxValue) {
+      filteredMovies = filteredMovies.filter(movie => movie.duration <= 40)
     }
-  }, [moviesCardList]);
+
+    return filteredMovies
+  }, [checkboxValue, searchValue])
+
+  const searchSavedMovies = (searchValue) => {
+    setSearchValue(searchValue);
+  }
 
   return (
     <main className="save-movies">
-      <SearchForm onSearchMovies={handleSearchMovies} savedMoviesRoute={true} />
-      {isSearchComplited ? (
-        searchMovies.length > 0 ? (
-          <MoviesCardList
-            savedMoviesRoute={true}
-            movies={searchMovies}
-            onDelete={onDelete}
-            isSaved={true}
-          />
-        ) : (
-          <span className="movies-form__error">Ничего не найдено.</span>
-        )
-      ) : (
-        <MoviesCardList
-          movies={moviesCardList}
-          onDelete={onDelete}
-          isSaved={true}
-        />
-      )}
+      <SearchForm
+        checkboxValue={checkboxValue} 
+        setCheckboxValue={setCheckboxValue}  
+        searchSavedMovies={searchSavedMovies}
+      />
+      <MoviesCardList movies={visibleMovies} />
     </main>
   );
-}
+};
 
 export default SavedMovies;

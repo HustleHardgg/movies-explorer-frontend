@@ -1,71 +1,64 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Form from "../Form/Form";
-import useFormWithValidation from "../../utils/validation.js";
+import { API_URL, TOKEN } from "../../constants/AppConstants";
+import { useNavigate } from "react-router-dom";
+import { signIn as fetchSignIn } from "../../services/MainApi";
 
-function Login({ onLogin, message }) {
-  const [isMessage, setIsMessage] = useState(false);
-  const { values, handleChange, errors, isValid, resetForm } =
-    useFormWithValidation();
 
-  function handleSubmit(e) {
+const Login = () => {
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const signIn = async (e) => {
     e.preventDefault();
-    onLogin({
-      email: values.email,
-      password: values.password,
-    });
-    resetForm();
-    setIsMessage(true);
+
+    try {
+      setLoading(true)
+      const data = await fetchSignIn(formData);
+      localStorage.setItem(TOKEN, data.token)
+      navigate('/movies');
+    } catch (err) {
+      setLoading(false)
+      console.error("ERROR")
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
   }
+
+  const onChange = (e) => {
+    setFormData((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+
   return (
     <Form
+      onSubmit={signIn}
       title="Рады видеть!"
       btntext="Войти"
       text="Ещё не зарегистрированы?"
       path="/signup"
       pathname="Регистрация"
-      isValid={isValid}
-      disabled={isValid}
-      onSubmit={handleSubmit}
     >
       <div className="input-content">
-        <p className="input-text">E-mail</p>
-        <input
-          className={`input-element ${
-            !isValid && errors.name && "input-error-activ"
-          }`}
-          required
-          pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
-          autoComplete="on"
-          name="email"
-          text="email"
-          value={values.email || ""}
-          error={errors.email}
-          onInput={handleChange}
-        />
-        <span className="input-error">{errors.email}</span>
+        <label className="input-text">E-mail</label>
+        <input className="input-element" required onChange={onChange} value={formData.email} name='email' />
+        <span className="input-error" />
 
-        <p className="input-text">Пароль</p>
-        <input
-          className={`input-element ${
-            !isValid && errors.name && "input-error-activ"
-          }`}
-          required
-          name="password"
-          text="пароль"
-          type="password"
-          minLength="4"
-          maxLength="30"
-          value={values.password || ""}
-          error={errors.password}
-          onInput={handleChange}
-        />
-        <span className="input-error">{errors.password}</span>
+        <label className="input-text">Пароль</label>
+        <input className="input-element input-element-border-one" required
+        text="пароль"
+        type="password"
+        minLength="4"
+        maxLength="30" onChange={onChange} value={formData.password} name='password' />
+        <span className="input-error" />
       </div>
-
-      <p className={isMessage ? "input-error-log-res" : ""}>{message}</p>
     </Form>
   );
-}
+};
 
 export default Login;

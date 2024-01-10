@@ -19,10 +19,3 @@
 .navigate__link:hover {
   opacity: 0.8;
 }
-.navigate__link_active {
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: #000;
-}

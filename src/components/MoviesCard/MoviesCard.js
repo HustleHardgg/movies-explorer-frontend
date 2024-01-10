@@ -1,65 +1,48 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./MoviesCard.css";
-import { useLocation, matchPath } from "react-router";
-import SaveBtn from "../SaveBtn/SaveBtn";
-import { getTimeFromMin } from "../../utils/utils";
+import convertDuration from '../../utils/convertDuration';
+import { MOVIES_API_URL } from '../../constants/AppConstants';
 
-function MoviesCard({ moviesCard, moviesCardList, onSave, onDelete }) {
-  const isSaved =
-    moviesCard.id && moviesCardList.some((m) => m.movieId === moviesCard.id);
 
-  const location = useLocation();
+const MoviesCard = ({ movie }) => {
+  const [isLike, setLike] = useState(() => {
+    const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) ?? []
+    return Array.from(savedMovies).find((savedMovie) => savedMovie.id === movie.id) != null
+  });
 
-  const handleClickMovie = () => {
-    if (isSaved) {
-      onDelete(moviesCardList.filter((m) => m.movieId === moviesCard.id)[0]);
-    } else {
-      onSave(moviesCard);
-      console.log(moviesCard);
+  const handleToggle = () => {
+    setLike(!isLike);
+
+    if (!isLike) {
+      let savedMovies = JSON.parse(localStorage.getItem('savedMovies')) ?? []
+      savedMovies = [...savedMovies, movie]
+      localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+    }
+    else {
+      let savedMovies = JSON.parse(localStorage.getItem('savedMovies')) ?? []
+      savedMovies = Array.from(savedMovies).filter((savedMovie) => savedMovie.id !== movie.id)
+      localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
     }
   };
-
-  const handleDeleteClick = () => {
-    console.log(moviesCard);
-    onDelete(moviesCard);
-  };
-
   return (
-    <li className="movies-card">
-      <a
-        className="movies-card__link"
-        href={moviesCard.trailerLink}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <li className="movies-card">
+        <button type="button" className={!isLike ? "movies-card__content-btn-like" : "movies-card__content-btn-like-active"} onClick={handleToggle}></button>
         <img
           className="movies-card__img"
-          alt={`Фото к фильму ${moviesCard.nameRu}`}
-          src={moviesCard.image}
+          alt="изображение фильма"
+          src={`${MOVIES_API_URL}/${movie.image.url}`}
         />
-      </a>
-      <div className="movies-card__content">
-        <div className="movies-card__content-text">
-          <h3 className="movies-card__content-text-title">
-            {moviesCard.nameRU}
-          </h3>
-          <p className="movies-card__content-text-duration">
-            {getTimeFromMin(moviesCard.duration)}
-          </p>
+
+        <div className="movies-card__content">
+
+          <div className="movies-card__content-text">
+            <h2 className="movies-card__content-text-title">{movie.nameRU}</h2>
+            <p className="movies-card__content-text-duration">{convertDuration(movie.duration)}</p>
+          </div>
+
         </div>
-        {matchPath({ path: "/movies" }, location.pathname) && (
-          <SaveBtn isSavedMovie={isSaved} onClick={handleClickMovie} />
-        )}
-        {matchPath({ path: "/saved-movies" }, location.pathname) && (
-          <button
-            type="button"
-            className="movies-card__content-btn-del"
-            onClick={handleDeleteClick}
-          />
-        )}
-      </div>
-    </li>
+      </li>
   );
-}
+};
 
 export default MoviesCard;

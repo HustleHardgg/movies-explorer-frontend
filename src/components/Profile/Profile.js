@@ -1,146 +1,97 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-import { CurrentUserContext } from "../../context/CurrentUserContext";
+import { Link } from "react-router-dom";
+import { API_URL, TOKEN } from "../../constants/AppConstants";
+import { getUser as fetchGetUser, updateUser as fetchUpdateUser } from "../../services/MainApi";
 
-function Profile({ onSignOut, userChange, message }) {
-  const currentUser = React.useContext(CurrentUserContext);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [errorName, setErrorName] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [isInputDisabled, setIsInputDisabled] = useState(true);
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [isMessage, setIsMessage] = useState(false);
-
-  useEffect(() => {
-    setName(currentUser.name);
-    setEmail(currentUser.email);
-  }, [currentUser]);
-
-  const handleChangeName = (e) => {
-    const validName =
-      /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u.test(
-        e.target.value
-      );
-
-    if (!e.target.value.length) {
-      setErrorName("Имя пользователя должно быть заполнено.");
-    } else if (e.target.value.length < 2) {
-      setErrorName("Имя пользователя должно быть не менее 2 символов.");
-    } else if (!validName) {
-      setErrorName(
-        "Имя должно содержать только латиницу, кириллицу, пробел или дефис."
-      );
-    } else if (validName) {
-      setErrorName("");
-    } else if (e.target.value.length > 30) {
-      setErrorName("Имя пользователя должно быть не более 30 символов.");
-    } else {
-      setErrorName("");
-    }
-    setName(e.target.value);
-  };
-
-  const handleChangeEmail = (e) => {
-    const validEmail =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        e.target.value
-      );
-
-    if (!e.target.value.length) {
-      setErrorEmail("Электронная почта должна быть заполнена.");
-    } else if (!validEmail) {
-      setErrorEmail("Неверный формат электронной почты.");
-    } else {
-      setErrorEmail("");
-    }
-    setEmail(e.target.value);
-  };
-
-  const handleInputDisabled = () => {
-    setIsInputDisabled(!isInputDisabled);
-  };
-
-  const handleSubmitProfileForm = (e) => {
-    e.preventDefault();
-    userChange({ name, email });
-    handleInputDisabled();
-    setIsMessage(true);
-  };
+const Profile = () => {
+  const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState({
+    name: '',
+    email: ''
+  })
 
   useEffect(() => {
-    console.log("bo");
-    if (errorName || errorEmail) {
-      setIsFormValid(false);
-    } else {
-      setIsFormValid(true);
+    getUser();
+  }, [])
+
+  const onChange = (e) => {
+    setUser((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+
+  async function getUser() {
+    try {
+      setLoading(true)
+      const data = await fetchGetUser();
+      setUser({ name: data?.name, email: data?.email })
+      console.log(data)
+    } catch (err) {
+      setLoading(false)
+      console.error(err)
+    } finally {
+      setLoading(false)
     }
-  }, [errorEmail, errorName]);
+  }
 
-  useEffect(() => {
-    if (name === currentUser.name && email === currentUser.email) {
-      setIsFormValid(false);
-    } else {
-      setIsFormValid(true);
+  async function updateUser() {
+    try {
+      setLoading(true)
+      const data = await fetchUpdateUser(user);
+      console.log(data)
+    } catch (err) {
+      setLoading(false)
+      console.error(err)
+    } finally {
+      setLoading(false)
     }
-  }, [currentUser.email, currentUser.name, email, name]);
+  }
 
-
+  function logout() {
+    localStorage.removeItem(TOKEN)
+  }
 
   return (
     <main>
     <section className="profile">
       <div className="profile__content">
-        <h1 className="profile__content-hello">Привет, Виталий!</h1>
-        <form className="profile__content-user"
-        onSubmit={handleSubmitProfileForm}>
+        <h1 className="profile__content-hello">Привет, {user.name}!</h1>
+        <form className="profile__content-user">
           <label className="profile__content-input profile__content-input-line">
             Имя
             <input
               className="profile__content-user-nama profile__content-user-info"
               name="name"
               type="text"
+              onChange={onChange}
+              value={user.name}
               placeholder="Имя"
-              value={name || ""}
-              onChange={handleChangeName}
-              disabled={!isInputDisabled}
+              required
             />
           </label>
-          <span className="input__error-profile">{errorName}</span>
+
           <label className="profile__content-input profile__content-input-padding">
             E-mail
             <input
               className="profile__content-user-email profile__content-user-info"
+              onChange={onChange}
               name="email"
               type="text"
+              value={user.email}
               placeholder="E-mail"
-              value={email || ""}
-              pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
-              onChange={handleChangeEmail}
-              disabled={!isInputDisabled}
+              required
             />
           </label>
-          <span className="input__error-profile">{errorEmail}</span>
-          <p className={isMessage ? "input__error-profile-res" : ""}>
-            {message}
-          </p>
-
+        </form>
         <div className="profile__content-btn">
-          <button type="button" className="profile-content-btn-edit-btn"
-            type="submit"
-          disabled={!isFormValid}
-          onClick={handleInputDisabled}
-          >
+          <button type="button" onClick={updateUser} className="profile-content-btn-edit-btn">
             Редактировать
           </button>
-           <button type="button" className="profile-content-btn-exit-btn"
-            type="submit"
-          onClick={onSignOut}
-          >
-            Выйти из аккаунта
-          </button>
+          <Link to="/"> 
+            <button onClick={logout} type="button" className="profile-content-btn-exit-btn">
+              Выйти из аккаунта
+            </button> 
+          </Link>
         </div>
-        </form>
       </div>
       </section>
     </main>
